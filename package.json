@@ -1,0 +1,25 @@
+{
+  "name": "salsa",
+  "version": "0.0.1",
+  "description": "Our saucy CSS framework 🥫",
+  "main": "./build/style.min.css",
+  "repository": "git@github.com:GasGang/salsa.git",
+  "author": "Gas Gang",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-cssmin": "^0.2.0",
+    "gulp-minify": "^3.1.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "run-sequence": "^2.2.1"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1"
+  }
+}
