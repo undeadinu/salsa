@@ -1,0 +1,17 @@
+@mixin maxwidth {
+	@media ($tablet) {
+		max-width: $size-tablet;
+	}
+	@media ($notebook) {
+		max-width: $size-notebook;
+	}
+	@media ($desktop) {
+		max-width: $size-desktop;
+	}
+	@media ($desktopLg) {
+		max-width: $size-desktopLg;
+	}
+
+	padding: 0 $sizer;
+	margin: 0 auto;
+}
