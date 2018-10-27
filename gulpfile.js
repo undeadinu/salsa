@@ -10,7 +10,7 @@ var babel = require("gulp-babel");
 
 // CSS Tasks
 gulp.task('css-compile', function() {
-  gulp.src('./src/scss/**/*.scss')
+  gulp.src('./src/scss/*.scss')
     .pipe(sass({outputStyle: 'nested'}).on('error', sass.logError))
     .pipe(autoprefixer({
       browsers: ['last 10 versions'],
@@ -28,7 +28,7 @@ gulp.task('css-minify', function() {
 });
 
 gulp.task('css', function() {
-  gulp.src('./src/scss/**/*.scss')
+  gulp.src('./src/scss/*.scss')
     .pipe(sass({outputStyle: 'nested'}).on('error', sass.logError))
     .pipe(autoprefixer({
       browsers: ['last 10 versions'],
