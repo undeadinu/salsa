@@ -1,0 +1,16 @@
+html {
+	overflow-x: hidden;
+}
+
+body {
+	font-family: sans-serif;
+	font-size: $sizer;
+	color: $dark;
+	line-height: 1;
+	overflow-x: hidden;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
