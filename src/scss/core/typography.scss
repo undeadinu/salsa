@@ -1,13 +1,27 @@
 // Headings
 h1 {
-
+	font-size: ($u * 4);
+	@include typo-spacing;
 }
 h2 {
-
+	font-size: ($u * 3);
+	@include typo-spacing;
 }
 h3 {
-
+	font-size: ($u * 2);
+	@include typo-spacing;
 }
 h4, h5, h6 {
+	font-size: ($u * 1.5);
+	@include typo-spacing;
+}
 
+// Others
+p {
+	font-size: ($u * 1.2);
+	@include typo-spacing;
+}
+a {
+	font-size: ($u * 1.2);
+	@include typo-spacing;
 }

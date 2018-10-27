@@ -34,3 +34,7 @@
 	margin: 0 auto;
 }
 
+@mixin typo-spacing {
+	line-height: 1.2;
+	margin-bottom: ($u * 0.5);
+}
