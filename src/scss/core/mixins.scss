@@ -1,3 +1,23 @@
+@mixin spacing-y($spacingAux) {
+	@if $spacingAux {
+		padding-top: ($u * $spacingAux);
+		padding-bottom: ($u * $spacingAux);
+	} @else {
+		padding-top: $u;
+		padding-bottom: $u;
+	}
+}
+
+@mixin spacing-x($spacingAux:null) {
+	@if $spacingAux {
+		padding-left: ($u * $spacingAux);
+		padding-right: ($u * $spacingAux);
+	} @else {
+		padding-left: $u;
+		padding-right: $u;
+	}
+}
+
 @mixin maxwidth {
 	@media ($tablet) {
 		max-width: $size-tablet;
@@ -11,7 +31,10 @@
 	@media ($desktopLg) {
 		max-width: $size-desktopLg;
 	}
-
-	padding: 0 $sizer;
 	margin: 0 auto;
+}
+
+@mixin typo-spacing {
+	line-height: 1.2;
+	margin-bottom: ($u * 0.5);
 }
