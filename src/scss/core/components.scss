@@ -1,0 +1,59 @@
+.header {
+	background: $main;
+	@include spacing-y(2);
+
+	&__wrapper {
+		@include maxwidth;
+		display: flex;
+		justify-content: space-between;
+	}//~wrapper
+	&__logo {
+		
+	}//~logo
+	&__btn {
+		@media ($notebook) {
+			display: none;
+		}
+	}//~btn
+}
+
+.navbar {
+	display: flex;
+	align-items: stretch;
+
+	&__item {
+    display: flex;
+    justify-content: center;
+		align-items: center;
+		flex: 1;
+		@include spacing-x(1);
+		font-size: ($u * 1.2);
+		line-height: 1.2;
+		text-decoration: none;
+		color: $dark;
+
+		&:hover {
+			text-decoration: underline;
+		}
+		&.has-search {
+			flex: 3;
+		}
+	}//~item
+
+	&__dropdown {
+		display: none;
+	}//~dropdown
+
+	&__search {
+		display: flex;
+		
+		&__input {
+			background: rgba(255,255,255,0.4);
+			border: 0;
+			font-size: ($u * 1.2);
+			line-height: 1.2;
+			padding: 0;
+			width: 100%;
+		}
+	}//~search
+}

@@ -4,13 +4,14 @@ html {
 
 body {
 	font-family: sans-serif;
-	font-size: $sizer;
+	font-size: $u;
 	color: $dark;
 	line-height: 1;
 	overflow-x: hidden;
 }
 
 img {
+	display: block;
 	max-width: 100%;
 	height: auto;
 }
