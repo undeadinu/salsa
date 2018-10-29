@@ -5,7 +5,6 @@ var cssmin = require('gulp-cssmin');
 var concat = require('gulp-concat');
 var minify = require('gulp-minify');
 var rename = require('gulp-rename');
-var runSequence = require('run-sequence');
 var babel = require("gulp-babel");
 
 // CSS Tasks
@@ -18,16 +17,18 @@ gulp.task('css-compile', function() {
     }))
     .pipe(rename('style.css'))
     .pipe(gulp.dest('./build/css/'));
+    
 });
 
-gulp.task('css-minify', function() {
+gulp.task('css-minify', function(done) {
     gulp.src(['./build/css/*.css', '!build/css/*.min.css'])
       .pipe(cssmin())
       .pipe(rename('style.min.css'))
       .pipe(gulp.dest('./build/css'));
+      done();
 });
 
-gulp.task('css', function() {
+gulp.task('css', function(done) {
   gulp.src('./src/scss/*.scss')
     .pipe(sass({outputStyle: 'nested'}).on('error', sass.logError))
     .pipe(autoprefixer({
@@ -37,7 +38,7 @@ gulp.task('css', function() {
     .pipe(cssmin())
     .pipe(rename('style.min.css'))
     .pipe(gulp.dest('./build/css/'));
-
+    done();
 });
 
 // JavaScript Tasks WIP
@@ -46,6 +47,7 @@ gulp.task('js-build', function() {
   .pipe(babel())
   .pipe(concat('scripts.js'))
   .pipe(gulp.dest('./build/js'));
+
 });
 
 gulp.task('js-minify', function() {
@@ -58,9 +60,10 @@ gulp.task('js-minify', function() {
       noSource: true,
     }))
     .pipe(gulp.dest('./build/js'));
+
 });
 
-gulp.task('js', function() {
+gulp.task('js', function(done) {
   gulp.src('./src/js/**/*.js')
   .pipe(babel({
     presets: ['@babel/env']
@@ -74,17 +77,20 @@ gulp.task('js', function() {
       noSource: true,
     }))
   .pipe(gulp.dest('./build/js'));
-
+   
+  done();
 });
 
 // Build frontend stuff
-gulp.task('default', function() {
-  runSequence('css', 'js');
+gulp.task('default', gulp.series('css','js'),function(done) {
+  done();
 });
 
 
 // Watch on CSS and JS
-gulp.task('watch', function() {
-  gulp.watch("./src/scss/**/*.scss", ['css']);
-  gulp.watch("./src/js/**/*.js", ['js']);
+gulp.task('watch', function(done) {
+  gulp.watch("./src/scss/**/*.scss", gulp.series('css'));
+  gulp.watch("./src/js/**/*.js", gulp.series('js'));
+
+  done();
 });
